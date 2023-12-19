@@ -1,5 +1,3 @@
-// functions/randomWord.js
-
 const christmasWords = [
     "Santa", "Reindeer", "Gifts", "Christmas Tree",
     "Snowflake", "Mistletoe", "Jingle Bells", "Candy Cane",

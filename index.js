@@ -10,7 +10,7 @@ const christmasWords = [
 ];
 
 // Endpoint to get a random word
-app.get('/.netlify/functions/randomChristmasWord', (req, res) => {
+app.get('/functions/randomChristmasWord', (req, res) => {
     const randomIndex = Math.floor(Math.random() * christmasWords.length);
     const randomChristmasWord = christmasWords[randomIndex];
     res.json({ random_word: randomChristmasWord });
