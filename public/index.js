@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000; // You can use any port you prefer
+app.use(express.static('public'))
 
 // List of Christmas-related words
 const christmasWords = [
