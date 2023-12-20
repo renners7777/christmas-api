@@ -3,15 +3,22 @@ const app = express();
 const port = 3000; // You can use any port you prefer
 app.use(express.static('public'))
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // or specify your domain
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
+
 // List of Christmas-related words
 const christmasWords = [
     "Santa", "Reindeer", "Gifts", "Christmas Tree",
     "Snowflake", "Mistletoe", "Jingle Bells", "Candy Cane",
-    "Frosty", "Sleigh", "Stockings", "Gingerbread", "Joy", "Peace"
+    "Frosty", "Sleigh", "Stockings", "Gingerbread", "Joy", "Peace", "Joy", "Jesus", "Nativity", "Turkey"
 ];
 
 // Endpoint to get a random word
-app.get('/functions/randomChristmasWord', (req, res) => {
+app.get('https://christmas-api.netlify.app/.netlify/functions/randomChristmasWord', (req, res) => {
     const randomIndex = Math.floor(Math.random() * christmasWords.length);
     const randomChristmasWord = christmasWords[randomIndex];
     res.json({ random_word: randomChristmasWord });
