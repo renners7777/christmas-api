@@ -5,7 +5,7 @@ app.use(express.static('public'))
 
 // Enable CORS for all routes (Allow font loading from specified origin)
 app.use((req, res, next) => {
-    res.setHeader('Content-Security-Policy', "default-src 'self'; font-src https://christmas-api.netlify.app;");
+    res.setHeader('Content-Security-Policy', "default-src 'self'; font-src https://christmas-api.netlify.app/.netlify/functions/randomChristmasWord;");
     next();
 });
 
