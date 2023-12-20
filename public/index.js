@@ -3,15 +3,10 @@ const app = express();
 const port = 3000; // You can use any port you prefer
 app.use(express.static('public'))
 
-// Enable CORS for all routes (Allow font loading from specified origin)
+
 app.use((req, res, next) => {
     res.setHeader('Content-Security-Policy', "default-src 'self'; font-src https://christmas-api.netlify.app/.netlify/functions/randomChristmasWord;");
-    next();
-});
-
-
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*'); // or specify your domain
+    res.setHeader('Access-Control-Allow-Origin', 'https://christmas-api.netlify.app/.netlify/functions/randomChristmasWord'); 
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
